@@ -30,6 +30,7 @@ specifiers:
   craco-alias: ^3.0.1
   dotenv: ^16.0.0
   dotenv-expand: ^8.0.3
+  find-process: ^1.4.7
   jest: ^27
   nodemon: ^2.0.16
   resolve-tspaths: ^0.3.0
@@ -70,6 +71,7 @@ dependencies:
   '@deepkit/workflow': 1.0.1-alpha.71_rs3ubpkl57q4jgqjrxfokhstyq
   dotenv: 16.0.0
   dotenv-expand: 8.0.3
+  find-process: 1.4.7
   jest: 27.5.1_ts-node@10.7.0
   rxjs: 6.6.7
   table: 6.8.0
@@ -2603,6 +2605,11 @@ packages:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
     dev: true
 
+  /commander/5.1.0:
+    resolution: {integrity: sha512-P0CysNDQ7rtVw4QIQtm+MRxV66vKFSvlsQvGYXZWR3qFU0jlMKHZZZgw8e+8DSah4UDKMqnknRDQz+xuQXQ/Zg==}
+    engines: {node: '>= 6'}
+    dev: false
+
   /commander/7.2.0:
     resolution: {integrity: sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==}
     engines: {node: '>= 10'}
@@ -3192,6 +3199,17 @@ packages:
       make-dir: 2.1.0
       pkg-dir: 3.0.0
     dev: true
+
+  /find-process/1.4.7:
+    resolution: {integrity: sha512-/U4CYp1214Xrp3u3Fqr9yNynUrr5Le4y0SsJh2lMDDSbpwYSz3M2SMWQC+wqcx79cN8PQtHQIL8KnuY9M66fdg==}
+    hasBin: true
+    dependencies:
+      chalk: 4.1.2
+      commander: 5.1.0
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   /find-up/3.0.0:
     resolution: {integrity: sha512-1yD6RmLI1XBfxugvORwlck6f75tYL+iR0jqwsOrOxMZyGYqUuDhJ0l4AXdO1iX/FTs9cBAMEk1gWSEx1kSbylg==}
@@ -6533,7 +6551,7 @@ packages:
     dev: false
 
   github.com/deepkit/turbo-net/889cb30c81714ddd3779ce8f4a5201b58ebe8799:
-    resolution: {commit: 889cb30c81714ddd3779ce8f4a5201b58ebe8799, repo: git+ssh://git@github.com/deepkit/turbo-net.git, type: git}
+    resolution: {tarball: https://codeload.github.com/deepkit/turbo-net/tar.gz/889cb30c81714ddd3779ce8f4a5201b58ebe8799}
     name: turbo-net
     version: 1.4.0
     requiresBuild: true

@@ -6,6 +6,8 @@ export enum ServeStatus {
   STARTING = "starting",
   STARTED = "started",
   STOPPING = "stopping",
+  DEAD = "dead",
+  RUNNING = "running",
 }
 
 @entity.name("serve")

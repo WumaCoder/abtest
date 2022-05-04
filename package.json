@@ -48,6 +48,7 @@
     "@deepkit/workflow": "^1.0.1-alpha.71",
     "dotenv": "^16.0.0",
     "dotenv-expand": "^8.0.3",
+    "find-process": "^1.4.7",
     "jest": "^27",
     "rxjs": "~6.6.0",
     "table": "^6.8.0",

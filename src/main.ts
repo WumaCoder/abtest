@@ -9,7 +9,7 @@ import { RoleModule } from "./modules/role/RoleModule";
 import { CmdModule } from "./cmd/CmdModule";
 import { RbacModule } from "@rbac";
 import { ServeModule } from "./modules/serve/ServeModule";
-import { LoopEvent } from "./events/LoopEvent";
+import { LoopTaskEvent } from "./events/LoopTaskEvent";
 
 new App({
   config: Config,
@@ -26,5 +26,5 @@ new App({
     new ORMModule(),
     new ServeModule(),
   ],
-  listeners: [ResponseEvent, LoopEvent],
+  listeners: [ResponseEvent, LoopTaskEvent],
 }).run();
