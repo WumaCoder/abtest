@@ -31,6 +31,7 @@ specifiers:
   dotenv: ^16.0.0
   dotenv-expand: ^8.0.3
   find-process: ^1.4.7
+  get-port-please: ^2.5.0
   jest: ^27
   nodemon: ^2.0.16
   resolve-tspaths: ^0.3.0
@@ -46,6 +47,7 @@ specifiers:
   webpack: ^5.72.0
   webpack-chain: ^6.5.1
   webpack-cli: ^4.9.2
+  webpack-node-externals: ^3.0.0
 
 dependencies:
   '@deepkit/app': 1.0.1-alpha.71_7f55uftithmgt7bqoyvt2irfda
@@ -72,6 +74,7 @@ dependencies:
   dotenv: 16.0.0
   dotenv-expand: 8.0.3
   find-process: 1.4.7
+  get-port-please: 2.5.0
   jest: 27.5.1_ts-node@10.7.0
   rxjs: 6.6.7
   table: 6.8.0
@@ -95,6 +98,7 @@ devDependencies:
   webpack: 5.72.0_dkzavh5duarlfb5flviihfwvq4
   webpack-chain: 6.5.1
   webpack-cli: 4.9.2_webpack@5.72.0
+  webpack-node-externals: 3.0.0
 
 packages:
 
@@ -3288,6 +3292,10 @@ packages:
       universalify: 2.0.0
     dev: false
 
+  /fs-memo/1.2.0:
+    resolution: {integrity: sha512-YEexkCpL4j03jn5SxaMHqcO6IuWuqm8JFUYhyCep7Ao89JIYmB8xoKhK7zXXJ9cCaNXpyNH5L3QtAmoxjoHW2w==}
+    dev: false
+
   /fs.realpath/1.0.0:
     resolution: {integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=}
 
@@ -3338,6 +3346,12 @@ packages:
   /get-parameter-names/0.3.0:
     resolution: {integrity: sha1-LSI3zVkubFuFmrLv2rQ18Ajlu5c=}
     engines: {node: '>= 0.4.0'}
+    dev: false
+
+  /get-port-please/2.5.0:
+    resolution: {integrity: sha512-NblPebBznYARC1R2r1qmusbJAAgBr954gWhEZgwTerzR8r3ud6U5PI1SG4Lue43r87aikPPjObs85VieIDK99A==}
+    dependencies:
+      fs-memo: 1.2.0
     dev: false
 
   /get-stream/4.1.0:
@@ -6347,6 +6361,11 @@ packages:
     dependencies:
       clone-deep: 4.0.1
       wildcard: 2.0.0
+    dev: true
+
+  /webpack-node-externals/3.0.0:
+    resolution: {integrity: sha512-LnL6Z3GGDPht/AigwRh2dvL9PQPFQ8skEpVrWZXLWBYmqcaojHNN0onvHzie6rq7EWKrrBfPYqNEzTJgiwEQDQ==}
+    engines: {node: '>=6'}
     dev: true
 
   /webpack-sources/3.2.3:
