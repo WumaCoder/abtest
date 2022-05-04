@@ -10,6 +10,7 @@ export class ServeService {
   constructor(private orm: ORMDatabase, private logger: Logger) {}
 
   async printList() {
+    await this.syncState();
     const list = await this.orm.query(Serve).find();
 
     const showTable = table(toMatrix(list));
