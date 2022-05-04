@@ -8,6 +8,8 @@ import { ResponseEvent } from "./events/ResponseEvent";
 import { RoleModule } from "./modules/role/RoleModule";
 import { CmdModule } from "./cmd/CmdModule";
 import { RbacModule } from "@rbac";
+import { ServeModule } from "./modules/serve/ServeModule";
+import { LoopEvent } from "./events/LoopEvent";
 
 new App({
   config: Config,
@@ -15,13 +17,14 @@ new App({
     new FrameworkModule({
       debug: true,
       migrateOnStartup: true,
-      port: config().port,
+      port: +config().port,
     }),
     new RbacModule(),
     new CmdModule(),
     new UserModule(),
     new RoleModule(),
     new ORMModule(),
+    new ServeModule(),
   ],
-  listeners: [ResponseEvent],
+  listeners: [ResponseEvent, LoopEvent],
 }).run();

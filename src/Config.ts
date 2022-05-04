@@ -4,7 +4,8 @@ import { Role } from "./orm/entities/RoleEntity";
 import { User } from "./orm/entities/UserEntity";
 
 export class Config {
-  rootPath = resolve(env("ROOT_PATH", "."));
+  rootPath = resolve(env("ROOT_PATH", join(__dirname, "..")));
+  runtimePath = join(this.rootPath, "./runtime");
   port = env("PORT", 3000);
   database = {
     path: join(this.rootPath, "runtime", "db.sqlite"),

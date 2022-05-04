@@ -26,7 +26,7 @@ module.exports = {
       },
     ],
   },
-  externals: [/^@deepkit\/.+/],
+  externals: [/^@deepkit\/.+/, "table"],
   externalsType: "commonjs",
   resolve: {
     extensions: [".tsx", ".ts"],
