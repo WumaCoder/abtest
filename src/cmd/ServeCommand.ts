@@ -15,13 +15,26 @@ export class ServeCommand implements Command {
     private serveService: ServeService
   ) {}
 
-  async execute(@arg name: string, @flag port?: number) {
+  async execute(
+    @arg name: string,
+    @flag.char("p") port?: number,
+    @flag.char("s") signal?: string
+  ) {
     port = port || (await getPort());
-    await this.serveService.createOrStart({
-      name,
-      port: port,
-      status: ServeStatus.STARTING,
-    });
+    signal = signal || "start";
+
+    switch (signal) {
+      case "start":
+        await this.serveService.createOrStart({
+          name,
+          port: port,
+          status: ServeStatus.STARTING,
+        });
+        break;
+      case "stop":
+        await this.serveService.stop(name);
+        break;
+    }
     await this.serveService.printList();
 
     return process.exit(0);

@@ -11,6 +11,7 @@ import { openSync } from "fs";
 import { Config } from "@app/Config";
 import { join } from "path";
 import { spawn } from "child_process";
+import terminate from "terminate";
 
 export class ServeService {
   outLog = openSync(join(this.config.runtimePath, "./abtest-serve.log"), "a");
@@ -78,6 +79,39 @@ export class ServeService {
     await this.orm.persist(serve);
 
     this.logger.info(`Server started PID: ${child.pid}.`);
+    return serve;
+  }
+
+  async stop(name: string) {
+    const serve = await this.orm.query(Serve).filter({ name }).findOne();
+    if (!serve) throw new Error(`Server '${name}' not found.`);
+
+    if (serve.status === ServeStatus.STOPPED) {
+      this.logger.warning(
+        `<yellow>Server ${serve.name} is already stopped.</yellow>`
+      );
+      return serve;
+    }
+
+    if (serve.status === ServeStatus.STOPPING) {
+      this.logger.warning(
+        `<yellow>Server ${serve.name} is already stopping.</yellow>`
+      );
+      return serve;
+    }
+
+    serve.status = ServeStatus.STOPPING;
+    await this.orm.persist(serve);
+
+    const childProcess = await find("pid", serve.pid);
+    if (childProcess.length) {
+      terminate(childProcess[0].pid);
+    }
+
+    serve.status = ServeStatus.STOPPED;
+    await this.orm.persist(serve);
+
+    this.logger.info(`Server '${serve.name}' stopped.`);
     return serve;
   }
 
