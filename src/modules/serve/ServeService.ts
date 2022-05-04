@@ -11,7 +11,6 @@ import { openSync } from "fs";
 import { Config } from "@app/Config";
 import { join } from "path";
 import { spawn } from "child_process";
-import terminate from "terminate";
 
 export class ServeService {
   outLog = openSync(join(this.config.runtimePath, "./abtest-serve.log"), "a");
@@ -102,16 +101,14 @@ export class ServeService {
 
     serve.status = ServeStatus.STOPPING;
     await this.orm.persist(serve);
-
-    const childProcess = await find("pid", serve.pid);
-    if (childProcess.length) {
-      terminate(childProcess[0].pid);
-    }
+    process.kill(serve.pid);
+    // await terminate(serve.pid);
 
     serve.status = ServeStatus.STOPPED;
     await this.orm.persist(serve);
 
-    this.logger.info(`Server '${serve.name}' stopped.`);
+    this.logger.info(`Server ${serve.name}(${serve.pid}) stopped.`);
+    await this.syncState();
     return serve;
   }
 
@@ -121,7 +118,7 @@ export class ServeService {
 
     const showTable = table(toMatrix(list));
 
-    console.log(showTable);
+    this.logger.info(showTable);
   }
 
   async syncState() {

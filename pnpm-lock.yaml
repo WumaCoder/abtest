@@ -38,7 +38,6 @@ specifiers:
   rxjs: ~6.6.0
   swc-loader: ^0.2.0
   table: ^6.8.0
-  terminate: ^2.5.0
   ts-jest: ^28.0.1
   ts-loader: ^9.3.0
   ts-node: ^10.7.0
@@ -79,7 +78,6 @@ dependencies:
   jest: 27.5.1_ts-node@10.7.0
   rxjs: 6.6.7
   table: 6.8.0
-  terminate: 2.5.0
   ts-jest: 28.0.1_53ggqi2i4rbcfjtktmjua6zili
   ts-node: 10.7.0_uv7c73rc7ndhhpbixh3m7qiu6m
   untildify: 4.0.0
@@ -2903,10 +2901,6 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
-  /duplexer/0.1.2:
-    resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
-    dev: false
-
   /duplexer3/0.1.4:
     resolution: {integrity: sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=}
     dev: true
@@ -3043,18 +3037,6 @@ packages:
   /etag/1.8.1:
     resolution: {integrity: sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=}
     engines: {node: '>= 0.6'}
-    dev: false
-
-  /event-stream/3.3.4:
-    resolution: {integrity: sha1-SrTJoPWlTbkzi0w02Gv86PSzVXE=}
-    dependencies:
-      duplexer: 0.1.2
-      from: 0.1.7
-      map-stream: 0.1.0
-      pause-stream: 0.0.11
-      split: 0.3.3
-      stream-combiner: 0.0.4
-      through: 2.3.8
     dev: false
 
   /events/3.3.0:
@@ -3285,10 +3267,6 @@ packages:
   /fresh/0.5.2:
     resolution: {integrity: sha1-PYyt2Q2XZWn6g1qx+OSyOhBWBac=}
     engines: {node: '>= 0.6'}
-    dev: false
-
-  /from/0.1.7:
-    resolution: {integrity: sha1-g8YK/Fi5xWmXAH7Rp2izqzA6RP4=}
     dev: false
 
   /fs-constants/1.0.0:
@@ -4670,10 +4648,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /map-stream/0.1.0:
-    resolution: {integrity: sha1-5WqpTEyAVaFkBKBnS3jyFffI4ZQ=}
-    dev: false
-
   /map-visit/1.0.0:
     resolution: {integrity: sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=}
     engines: {node: '>=0.10.0'}
@@ -5100,12 +5074,6 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /pause-stream/0.0.11:
-    resolution: {integrity: sha1-/lo0sMvOErWqaitAPuLnO2AvFEU=}
-    dependencies:
-      through: 2.3.8
-    dev: false
-
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
@@ -5193,14 +5161,6 @@ packages:
     dependencies:
       kleur: 3.0.3
       sisteransi: 1.0.5
-    dev: false
-
-  /ps-tree/1.2.0:
-    resolution: {integrity: sha512-0VnamPPYHl4uaU/nSFeZZpR21QAWRz+sRv4iW9+v/GS/J5U5iZB5BNN6J0RMoOvdx2gWM2+ZFMIm58q24e4UYA==}
-    engines: {node: '>= 0.10'}
-    hasBin: true
-    dependencies:
-      event-stream: 3.3.4
     dev: false
 
   /psl/1.8.0:
@@ -5683,12 +5643,6 @@ packages:
       extend-shallow: 3.0.2
     dev: true
 
-  /split/0.3.3:
-    resolution: {integrity: sha1-zQ7qXmOiEd//frDwkcQTPi0N0o8=}
-    dependencies:
-      through: 2.3.8
-    dev: false
-
   /sprintf-js/1.0.3:
     resolution: {integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=}
     dev: false
@@ -5721,12 +5675,6 @@ packages:
   /statuses/1.5.0:
     resolution: {integrity: sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=}
     engines: {node: '>= 0.6'}
-    dev: false
-
-  /stream-combiner/0.0.4:
-    resolution: {integrity: sha1-TV5DPBhSYd3mI8o/RMWGvPXErRQ=}
-    dependencies:
-      duplexer: 0.1.2
     dev: false
 
   /string-length/4.0.2:
@@ -5896,13 +5844,6 @@ packages:
       supports-hyperlinks: 2.2.0
     dev: false
 
-  /terminate/2.5.0:
-    resolution: {integrity: sha512-WnhIjfoTiIvmrfey4GSkqJevEHbIFnSdKeutHwA+cm81/1+GlAHLw1pBKxsKqkrqMaQKK65V6WrvUa851phbgA==}
-    engines: {node: '>=0.10'}
-    dependencies:
-      ps-tree: 1.2.0
-    dev: false
-
   /terser-webpack-plugin/5.3.1_pw24mm452p4hf7uio2payvhuty:
     resolution: {integrity: sha512-GvlZdT6wPQKbDNW/GDQzZFg/j4vKU96yl2q6mcUkzKOgW4gwf1Z8cZToUCrz31XHlPWH8MVb1r2tFtdDtTGJ7g==}
     engines: {node: '>= 10.13.0'}
@@ -5954,6 +5895,7 @@ packages:
 
   /through/2.3.8:
     resolution: {integrity: sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=}
+    dev: true
 
   /tmp/0.0.33:
     resolution: {integrity: sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==}
