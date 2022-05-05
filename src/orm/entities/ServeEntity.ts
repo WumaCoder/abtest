@@ -18,7 +18,7 @@ export class Serve extends Common {
 
   status: ServeStatus = ServeStatus.STARTED;
 
-  port!: number & Unique;
+  port!: number;
 
   constructor() {
     super();

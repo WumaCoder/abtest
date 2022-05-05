@@ -32,7 +32,10 @@ export class ServeService {
   async start(name: string, port: number) {
     this.logger.info("Starting server...");
 
-    let serve = await this.orm.query(Serve).filter({ name }).findOne();
+    let serve = await this.orm
+      .query(Serve)
+      .filter({ name })
+      .findOneOrUndefined();
 
     if (!serve) {
       serve = make(Serve, {
