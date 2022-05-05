@@ -23,9 +23,9 @@ export class ListCommand implements Command {
       await this.subappService.printList(
         await this.serveModule.findOneOrFail(name)
       );
-      return 0;
+      return process.exit(0);
     }
     await this.serveModule.printList();
-    return 0;
+    return process.exit(0);
   }
 }
