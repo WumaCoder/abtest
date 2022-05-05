@@ -1,5 +1,6 @@
 import { BackReference, entity, Index, MinLength, Unique } from "@deepkit/type";
 import { Common } from "./CommonEntity";
+import { Subapp } from "@app/orm/entities/SubappEntity";
 
 export enum ServeStatus {
   STOPPED = "stopped",
@@ -19,6 +20,8 @@ export class Serve extends Common {
   status: ServeStatus = ServeStatus.STARTED;
 
   port!: number;
+
+  subapps?: Subapp[] & BackReference;
 
   constructor() {
     super();

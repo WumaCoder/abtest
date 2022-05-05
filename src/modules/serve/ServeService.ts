@@ -119,7 +119,7 @@ export class ServeService {
     await this.syncState();
     const list = await this.orm.query(Serve).find();
 
-    const showTable = table(toMatrix(list));
+    const showTable = table(toMatrix(list, ["subapps"]));
 
     this.logger.info(showTable);
   }
@@ -140,5 +140,9 @@ export class ServeService {
     }
 
     this.logger.debug("sync state done");
+  }
+
+  findOneOrFail(name: string) {
+    return this.orm.query(Serve).filter({ name }).findOne();
   }
 }

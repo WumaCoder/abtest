@@ -4,7 +4,7 @@ import { ConfigCommand } from "./ConfigCommand";
 import { InitCommand } from "./InitCommand";
 import { ServeCommand } from "./ServeCommand";
 import { ListCommand } from "./ListCommand";
-import { SubappCommand } from "./SubappCommad";
+import { ProxyCommand } from "./ProxyCommad";
 
 export class CmdModule extends createModule({
   config: Config,
@@ -13,6 +13,6 @@ export class CmdModule extends createModule({
     InitCommand,
     ServeCommand,
     ListCommand,
-    SubappCommand,
+    ProxyCommand,
   ],
 }) {}
