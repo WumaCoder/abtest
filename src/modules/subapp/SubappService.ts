@@ -4,6 +4,8 @@ import { ProxyDto } from "./dto/ProxyDto";
 import { make } from "@tools";
 import { Subapp, SubappStatus } from "@app/orm/entities/SubappEntity";
 import { Logger } from "@deepkit/logger";
+import { toMatrix } from "@tools/toMatrix";
+import { table } from "table";
 
 export class SubappService {
   constructor(private orm: ORMDatabase, private logger: Logger) {}
@@ -25,5 +27,16 @@ export class SubappService {
 
     await this.orm.persist(subapp);
     return subapp;
+  }
+
+  async printList(serve: Serve) {
+    // await this.syncState();
+    const list = await this.orm.query(Subapp).filter({ serve }).find();
+
+    const showTable = table(
+      toMatrix(list, ["serve", "createdAt", "updatedAt"])
+    );
+
+    this.logger.info(showTable);
   }
 }
