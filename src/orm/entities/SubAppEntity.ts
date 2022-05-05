@@ -9,7 +9,7 @@ import {
 import { Common } from "./CommonEntity";
 import { Serve } from "./ServeEntity";
 
-export enum SubAppStatus {
+export enum SubappStatus {
   STOPPED = "stopped",
   STARTING = "starting",
   STARTED = "started",
@@ -18,13 +18,13 @@ export enum SubAppStatus {
   RUNNING = "running",
 }
 
-@entity.name("sub_app")
-export class SubApp extends Common {
+@entity.name("subapp")
+export class Subapp extends Common {
   name!: string & Unique & MinLength<1>;
 
   pid!: number;
 
-  status: SubAppStatus = SubAppStatus.STARTED;
+  status: SubappStatus = SubappStatus.STARTED;
 
   port!: number & Unique;
 
