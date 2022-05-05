@@ -15,8 +15,6 @@
       "@app/*": ["./src/*"],
       "@boot": ["./libs/boot/src"],
       "@boot/*": ["./libs/boot/src/*"],
-      "@rbac": ["./libs/rbac/src"],
-      "@rbac/*": ["./libs/rbac/src/*"],
       "@tools": ["./libs/tools/src"],
       "@tools/*": ["./libs/tools/src/*"]
     }
