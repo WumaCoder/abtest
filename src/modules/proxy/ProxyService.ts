@@ -2,15 +2,15 @@ import { ORMDatabase } from "@app/orm/ORMDatabase";
 import { Serve } from "@app/orm/entities/ServeEntity";
 import { ProxyDto } from "./dto/ProxyDto";
 import { make } from "@tools";
-import { Subapp, SubappStatus } from "@app/orm/entities/SubappEntity";
+import { ProxyRecord, ProxyStatus } from "@app/orm/entities/ProxyRecordEntity";
 import { Logger } from "@deepkit/logger";
 import { toMatrix } from "@tools/toMatrix";
 import { table } from "table";
 
-export class SubappService {
+export class ProxyService {
   async findOne(id: string) {
     return await this.orm
-      .query(Subapp)
+      .query(ProxyRecord)
       .filter({ id: +id })
       .findOneOrUndefined();
   }
@@ -18,7 +18,7 @@ export class SubappService {
 
   async proxy(opt: ProxyDto) {
     let subapp = await this.orm
-      .query(Subapp)
+      .query(ProxyRecord)
       .filter({ name: opt.name })
       .findOneOrUndefined();
 
@@ -28,8 +28,7 @@ export class SubappService {
       );
       return subapp;
     }
-    subapp = make(Subapp, opt);
-    subapp.status = SubappStatus.PROXY;
+    subapp = make(ProxyRecord, opt);
 
     await this.orm.persist(subapp);
     return subapp;
@@ -37,7 +36,7 @@ export class SubappService {
 
   async printList(serve: Serve) {
     // await this.syncState();
-    const list = await this.orm.query(Subapp).filter({ serve }).find();
+    const list = await this.orm.query(ProxyRecord).filter({ serve }).find();
 
     const showTable = table(
       toMatrix(list, ["serve", "createdAt", "updatedAt"])

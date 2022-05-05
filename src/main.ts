@@ -7,7 +7,7 @@ import { HttpProxyEvent } from "./events/HttpProxyEvent";
 import { CmdModule } from "./cmd/CmdModule";
 import { ServeModule } from "./modules/serve/ServeModule";
 import { LoopTaskEvent } from "./events/LoopTaskEvent";
-import { SubappModule } from "./modules/subapp/SubappModule";
+import { ProxyModule } from "./modules/proxy/ProxyModule";
 
 new App({
   config: Config,
@@ -20,7 +20,7 @@ new App({
     new CmdModule(),
     new ORMModule(),
     new ServeModule(),
-    new SubappModule(),
+    new ProxyModule(),
   ],
   listeners: [HttpProxyEvent, LoopTaskEvent],
 }).run();

@@ -2,22 +2,22 @@ import { eventDispatcher } from "@deepkit/event";
 import { httpWorkflow } from "@deepkit/http";
 import { Logger } from "@deepkit/logger";
 import httpProxy from "http-proxy";
-import { SubappService } from "../modules/subapp/SubappService";
 import { Config } from "@app/Config";
+import { ProxyService } from "../modules/proxy/ProxyService";
 
 var proxy = httpProxy.createProxyServer({});
 
 export class HttpProxyEvent {
   constructor(
     private logger: Logger,
-    private subappService: SubappService,
+    private proxyService: ProxyService,
     private config: Config
   ) {}
 
   @eventDispatcher.listen(httpWorkflow.onRouteNotFound)
   async onRouteNotFound(event: typeof httpWorkflow.onRouteNotFound.event) {
     const id = event.request.headers["x-abtest-id"] as string;
-    const subapp = await this.subappService.findOne(id);
+    const subapp = await this.proxyService.findOne(id);
     if (!subapp) {
       return;
     }

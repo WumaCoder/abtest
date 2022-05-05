@@ -1,16 +1,16 @@
 import { Logger } from "@deepkit/logger";
 import { arg, cli, Command, flag } from "@deepkit/app";
 import { Config } from "../Config";
-import { SubappService } from "../modules/subapp/SubappService";
 import { ServeService } from "@app/modules/serve/ServeService";
 import { getPort } from "get-port-please";
+import { ProxyService } from "../modules/proxy/ProxyService";
 
 @cli.controller("proxy")
 export class ProxyCommand implements Command {
   constructor(
     protected logger: Logger,
     private config: Config,
-    private subappService: SubappService,
+    private proxyService: ProxyService,
     private serveService: ServeService
   ) {}
 
@@ -19,7 +19,7 @@ export class ProxyCommand implements Command {
     @flag.char("s") serve: string,
     @flag.char("p") port?: number
   ) {
-    await this.subappService.proxy({
+    await this.proxyService.proxy({
       name,
       serve: await this.serveService.findOneOrFail(serve),
       port: port || ((await getPort()) as number),

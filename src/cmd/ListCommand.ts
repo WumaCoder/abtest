@@ -1,19 +1,19 @@
 import { Logger } from "@deepkit/logger";
 import { arg, cli, Command, flag } from "@deepkit/app";
 import { ServeService } from "@app/modules/serve/ServeService";
-import { SubappService } from "../modules/subapp/SubappService";
+import { ProxyService } from "@app/modules/proxy/ProxyService";
 
 @cli.controller("list")
 export class ListCommand implements Command {
   constructor(
     protected logger: Logger,
     private serveModule: ServeService,
-    private subappService: SubappService
+    private proxyService: ProxyService
   ) {}
 
   async execute(@arg name?: string) {
     if (name) {
-      await this.subappService.printList(
+      await this.proxyService.printList(
         await this.serveModule.findOneOrFail(name)
       );
       return process.exit(0);

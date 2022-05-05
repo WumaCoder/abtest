@@ -1,6 +1,6 @@
 import { BackReference, entity, Index, MinLength, Unique } from "@deepkit/type";
 import { Common } from "./CommonEntity";
-import { Subapp } from "@app/orm/entities/SubappEntity";
+import { ProxyRecord } from "@app/orm/entities/ProxyRecordEntity";
 
 export enum ServeStatus {
   STOPPED = "stopped",
@@ -21,7 +21,7 @@ export class Serve extends Common {
 
   port!: number;
 
-  subapps?: Subapp[] & BackReference;
+  subapps?: ProxyRecord[] & BackReference;
 
   constructor() {
     super();
