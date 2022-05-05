@@ -10,6 +10,7 @@ import { CmdModule } from "./cmd/CmdModule";
 import { RbacModule } from "@rbac";
 import { ServeModule } from "./modules/serve/ServeModule";
 import { LoopTaskEvent } from "./events/LoopTaskEvent";
+import { SubappModule } from "./modules/subapp/SubappModule";
 
 new App({
   config: Config,
@@ -25,6 +26,7 @@ new App({
     new RoleModule(),
     new ORMModule(),
     new ServeModule(),
+    new SubappModule(),
   ],
   listeners: [ResponseEvent, LoopTaskEvent],
 }).run();
