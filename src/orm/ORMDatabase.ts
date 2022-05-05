@@ -5,6 +5,7 @@ import { User } from "./entities/UserEntity";
 import { Role } from "./entities/RoleEntity";
 import { UserJoinRole } from "./entities/UserJoinRoleEntity";
 import { Serve } from "./entities/ServeEntity";
+import { SubApp } from "./entities/SubAppEntity";
 
 export class ORMDatabase extends Database {
   name = "default";
@@ -15,6 +16,7 @@ export class ORMDatabase extends Database {
       Role,
       UserJoinRole,
       Serve,
+      SubApp,
     ]);
   }
 }
