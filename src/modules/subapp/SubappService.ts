@@ -8,6 +8,12 @@ import { toMatrix } from "@tools/toMatrix";
 import { table } from "table";
 
 export class SubappService {
+  async findOne(id: string) {
+    return await this.orm
+      .query(Subapp)
+      .filter({ id: +id })
+      .findOneOrUndefined();
+  }
   constructor(private orm: ORMDatabase, private logger: Logger) {}
 
   async proxy(opt: ProxyDto) {

@@ -121,7 +121,7 @@ export class ServeService {
 
     const showTable = table(toMatrix(list, ["subapps"]));
 
-    this.logger.info(showTable);
+    this.logger.info(`Print Serve List\n${showTable}`);
   }
 
   async syncState() {

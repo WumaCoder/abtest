@@ -5,7 +5,7 @@ import { RoleService } from "./RoleService";
 
 export class RoleModule extends createModule({
   config: Config,
-  controllers: [RoleController],
+  // controllers: [RoleController],
   providers: [RoleService],
   exports: [RoleService],
 }) {}

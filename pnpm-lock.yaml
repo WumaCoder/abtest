@@ -24,6 +24,7 @@ specifiers:
   '@deepkit/workflow': ^1.0.1-alpha.71
   '@swc/core': ^1.2.175
   '@tsconfig/node16': ^1.0.2
+  '@types/http-proxy': ^1.17.9
   '@types/jest': ^27.4.1
   '@types/node': ^17.0.23
   alias-hq: ^5.4.0
@@ -32,6 +33,7 @@ specifiers:
   dotenv-expand: ^8.0.3
   find-process: ^1.4.7
   get-port-please: ^2.5.0
+  http-proxy: ^1.18.1
   jest: ^27
   nodemon: ^2.0.16
   resolve-tspaths: ^0.3.0
@@ -75,6 +77,7 @@ dependencies:
   dotenv-expand: 8.0.3
   find-process: 1.4.7
   get-port-please: 2.5.0
+  http-proxy: 1.18.1
   jest: 27.5.1_ts-node@10.7.0
   rxjs: 6.6.7
   table: 6.8.0
@@ -85,6 +88,7 @@ dependencies:
 devDependencies:
   '@swc/core': 1.2.175
   '@tsconfig/node16': 1.0.2
+  '@types/http-proxy': 1.17.9
   '@types/jest': 27.4.1
   '@types/node': 17.0.31
   alias-hq: 5.4.0
@@ -1700,6 +1704,12 @@ packages:
       '@types/node': 17.0.31
     dev: false
 
+  /@types/http-proxy/1.17.9:
+    resolution: {integrity: sha512-QsbSjA/fSk7xB+UXlCT3wHBy5ai9wOcNDWwZAtud+jXhwOM3l+EYZh8Lng4+/6n8uar0J7xILzqftJdJ/Wdfkw==}
+    dependencies:
+      '@types/node': 17.0.31
+    dev: true
+
   /@types/integer/4.0.1:
     resolution: {integrity: sha512-QQojPymFcV1hrvWXA1h0pP9RmFBFNuWikZcUEjjVsS19IyKO+jqOX24lp2ZHF4A21EmkosJhJDX7CLG67F2s7A==}
     dev: false
@@ -3039,6 +3049,10 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
+  /eventemitter3/4.0.7:
+    resolution: {integrity: sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==}
+    dev: false
+
   /events/3.3.0:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
     engines: {node: '>=0.8.x'}
@@ -3233,6 +3247,16 @@ packages:
     resolution: {integrity: sha512-Ac1OwHjSoUALrcnHTTD6oaEPITaxYmP34iiEEcuCxeeD+tOKR7/Toaw4RpJKcDmYxLX79ZP9E7z+Q8ze9pESbQ==}
     engines: {node: '>=0.4.0'}
     dev: true
+
+  /follow-redirects/1.15.0:
+    resolution: {integrity: sha512-aExlJShTV4qOUOL7yF1U5tvLCB0xQuudbf6toyYA0E/acBNw71mvjFTnLaRp50aQaYocMR0a/RMMBIHeZnGyjQ==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dev: false
 
   /for-in/1.0.2:
     resolution: {integrity: sha1-gQaNKVqBQuwKxybG4iAMMPttXoA=}
@@ -3553,6 +3577,17 @@ packages:
       debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /http-proxy/1.18.1:
+    resolution: {integrity: sha512-7mz/721AbnJwIVbnaSv1Cz3Am0ZLT/UBwkC92VlxhXv/k/BBQfM2fXElQNC27BVGr0uwUpplYPQM9LnaBMR5NQ==}
+    engines: {node: '>=8.0.0'}
+    dependencies:
+      eventemitter3: 4.0.7
+      follow-redirects: 1.15.0
+      requires-port: 1.0.0
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   /https-proxy-agent/5.0.1:
@@ -5308,6 +5343,10 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
+  /requires-port/1.0.0:
+    resolution: {integrity: sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=}
+    dev: false
+
   /resolve-cwd/3.0.0:
     resolution: {integrity: sha512-OrZaX2Mb+rJCpH/6CpSqt9xFVpN++x01XnN2ie9g6P5/3xelLAkXWVADpdz1IHD/KFfEXyE6V0U01OQ3UO2rEg==}
     engines: {node: '>=8'}
@@ -6570,7 +6609,7 @@ packages:
     dev: false
 
   github.com/deepkit/turbo-net/889cb30c81714ddd3779ce8f4a5201b58ebe8799:
-    resolution: {tarball: https://codeload.github.com/deepkit/turbo-net/tar.gz/889cb30c81714ddd3779ce8f4a5201b58ebe8799}
+    resolution: {commit: 889cb30c81714ddd3779ce8f4a5201b58ebe8799, repo: git+ssh://git@github.com/deepkit/turbo-net.git, type: git}
     name: turbo-net
     version: 1.4.0
     requiresBuild: true

@@ -50,6 +50,7 @@
     "dotenv-expand": "^8.0.3",
     "find-process": "^1.4.7",
     "get-port-please": "^2.5.0",
+    "http-proxy": "^1.18.1",
     "jest": "^27",
     "rxjs": "~6.6.0",
     "table": "^6.8.0",
@@ -60,6 +61,7 @@
   "devDependencies": {
     "@swc/core": "^1.2.175",
     "@tsconfig/node16": "^1.0.2",
+    "@types/http-proxy": "^1.17.9",
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.23",
     "alias-hq": "^5.4.0",
