@@ -1,5 +1,5 @@
 {
-  "name": "abtest",
+  "name": "abtest-cli",
   "version": "0.0.1",
   "description": "a development tool for testing",
   "main": "dist/main.js",
