@@ -16,13 +16,13 @@ export enum ProxyStatus {
   DISABLED = "disabled",
 }
 
-@entity.name("proxy_record").index(["serve", "name"], { unique: true })
+@entity.name("proxy_record")
 export class ProxyRecord extends Common {
   rootPath: string = "";
 
   configPath: string = "";
 
-  name!: string & MinLength<1>;
+  name!: string & MinLength<1> & Unique;
 
   port!: number;
 

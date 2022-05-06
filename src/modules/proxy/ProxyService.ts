@@ -9,12 +9,6 @@ import { table } from "table";
 import { LinkDto } from "./dto/LinkDto";
 
 export class ProxyService {
-  async findOne(id: string) {
-    return await this.orm
-      .query(ProxyRecord)
-      .filter({ id: +id })
-      .findOneOrUndefined();
-  }
   constructor(private orm: ORMDatabase, private logger: Logger) {}
 
   async proxy(opt: ProxyDto) {
@@ -60,5 +54,14 @@ export class ProxyService {
     );
 
     this.logger.info(showTable);
+  }
+
+  async findOne(id: string) {
+    return await this.orm
+      .query(ProxyRecord)
+      .filter({
+        $or: [{ id: +id }, { name: id }],
+      })
+      .findOneOrUndefined();
   }
 }

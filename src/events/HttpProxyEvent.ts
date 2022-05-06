@@ -16,16 +16,17 @@ export class HttpProxyEvent {
 
   @eventDispatcher.listen(httpWorkflow.onRouteNotFound)
   async onRouteNotFound(event: typeof httpWorkflow.onRouteNotFound.event) {
-    const id = event.request.headers["x-abtest-id"] as string;
-    const subapp = await this.proxyService.findOne(id);
-    if (!subapp) {
+    const idOrName = event.request.headers[this.config.xHeader] as string;
+    const record = await this.proxyService.findOne(idOrName);
+
+    if (!record) {
       return;
     }
-    if (subapp.port === this.config.port) {
+    if (record.port === this.config.port) {
       return;
     }
     const now = Date.now();
-    const target = `http://127.0.0.1:${subapp.port}`;
+    const target = `http://127.0.0.1:${record.port}`;
     proxy.web(
       event.request,
       event.response,
