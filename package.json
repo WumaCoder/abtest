@@ -2,15 +2,20 @@
   "name": "deepkit-template",
   "version": "0.0.0",
   "description": "a deepkit quick start template.",
-  "main": "index.js",
+  "main": "dist/main.js",
+  "typings": "./src/main.ts",
+  "bin": {
+    "abtest": "./bin/index.js"
+  },
   "engines": {
     "node": ">14",
     "pnpm": ">=6"
   },
-  "publishConfig": {
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts"
+  "bugs": {
+    "url": "https://github.com/WumaCoder/abtest/issues",
+    "email": "1829913225@qq.com"
   },
+  "homepage": "https://github.com/WumaCoder/abtest",
   "scripts": {
     "prepare": "npm run postinstall",
     "postinstall": "deepkit-type-install",
@@ -21,9 +26,13 @@
     "build:tsc": "tsc && resolve-tspaths --src=./",
     "test": "jest"
   },
-  "keywords": [],
-  "author": "<You>",
-  "license": "ISC",
+  "keywords": [
+    "proxy",
+    "ab",
+    "test"
+  ],
+  "author": "WumaCoder",
+  "license": "MIT",
   "dependencies": {
     "@deepkit/app": "^1.0.1-alpha.71",
     "@deepkit/broker": "^1.0.1-alpha.71",
