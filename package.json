@@ -1,7 +1,7 @@
 {
-  "name": "deepkit-template",
-  "version": "0.0.0",
-  "description": "a deepkit quick start template.",
+  "name": "abtest",
+  "version": "0.0.1",
+  "description": "a development tool for testing",
   "main": "dist/main.js",
   "typings": "./src/main.ts",
   "bin": {

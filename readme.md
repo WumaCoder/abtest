@@ -1,63 +1,59 @@
-# Deepkit Template
+# abtest
 
-a deepkit quick start template, help you quickly build a development environment.
+一个预防测试代理环境。
 
-## Feature
+## 特性
 
-- [x] Automatic identification environment.(local,dev,prod,...)
-- [x] Support npm and pnpm.
-- [x] Minimize permissions for integrating user and role (RBAC).
-- [x] Neat directory structure.
-- [x] Automatic reload.
-- [x] Jest unit test integration.
-- [ ] E2E auto test.
-- [ ] Git commit verify.
-- [ ] Client apisdk generation.
-- [ ] Integrating eslint and prettier(Look forward to using Rome instead).
-- [ ] Automatic version change and generate changelog.
+- [x] 命令方式
+- [x] 配置创建
 
-## Bootstrap
-
-### start
-
-```bash
-git clone https://github.com/WumaCoder/deepkit-template.git
-pnpm i # or npm i
-pnpm dev # npm run dev
-```
-
-### build
-
-```base
-pnpm build
-```
-
-visit `http://localhost:3000`.
-
-## Environment
-
-We can access it automatically through `e(key, defaultValue)` method `.env `or `.env.dev` or `.env.local` or `.env.prod` file.
-
-Order:
+## 安装
 
 ```
-       .env.dev
-.env < .env.local
-       .env.prod
+npm i -g abtest
 ```
 
-Environment switching:
+## 使用
+
+### 初始化
 
 ```
-1.`.env` file
-NODE_ENV = prod # dev or local
-
-2.system env
-export NODE_ENV = prod
+abtest init [--force]
+# --force 强制
 ```
 
-.env > system env
+### 创建代理服务器
 
-## About
+```
+abtest serve <serveName> [--port=3000] [--signal=start|stop]
+```
 
-WumaCoder
+### 代理服务
+
+```
+abtest link [serveName] [--port=3002]
+# 连接到serveName服务
+# 我们可以直接创建 `abtest.config.js` 来写入配置
+```
+
+## 配置
+
+我们在项目里创建 `abtest.config.js` 配置文件
+
+```js
+module.exports = {
+  serve: "qxg-app",
+  name: "test1",
+  port: 3002,
+};
+```
+
+> 这个例子是将创建一个代理连接到 qxg-app，name 是 test1 ，代理端口号是 8080
+
+## 设置头
+
+完成上面后，我们需要在前端的请求库设置 `headers['x-abtest'] = 'test1'` 来进行代理。
+
+## 关于
+
+MIT
