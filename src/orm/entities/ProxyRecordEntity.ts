@@ -10,7 +10,7 @@ import { Common } from "./CommonEntity";
 import { Serve } from "./ServeEntity";
 
 export enum ProxyStatus {
-  PROXY = "proxy",
+  CHECKING = "checking",
   STOPPED = "stopped",
   RUNNING = "running",
   DISABLED = "disabled",
@@ -20,15 +20,17 @@ export enum ProxyStatus {
 export class ProxyRecord extends Common {
   rootPath: string = "";
 
+  configPath: string = "";
+
   name!: string & MinLength<1>;
-
-  pid: number = 0;
-
-  status: ProxyStatus = ProxyStatus.PROXY;
 
   port!: number;
 
   serve!: Serve & Reference;
+
+  pid: number = 0;
+
+  status: ProxyStatus = ProxyStatus.CHECKING;
 
   constructor() {
     super();

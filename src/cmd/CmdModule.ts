@@ -4,7 +4,8 @@ import { ConfigCommand } from "./ConfigCommand";
 import { InitCommand } from "./InitCommand";
 import { ServeCommand } from "./ServeCommand";
 import { ListCommand } from "./ListCommand";
-import { ProxyCommand } from "./ProxyCommad";
+import { ProxyCommand } from "./ProxyCommand";
+import { LinkCommand } from "./LinkCommand";
 
 export class CmdModule extends createModule({
   config: Config,
@@ -14,5 +15,6 @@ export class CmdModule extends createModule({
     ServeCommand,
     ListCommand,
     ProxyCommand,
+    LinkCommand,
   ],
 }) {}
